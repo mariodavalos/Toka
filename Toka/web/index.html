@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>Circles</title>
+
+	<style>
+        @font-face { font-family: Avenir; src: url('Avenir.ttc'); }
+		#canvas .circle {
+			display: inline-block;
+		}
+
+		#canvas2 .tit {
+			display: inline-block;
+            font-size:70%;
+		}
+
+		body{
+			color:#fff;
+            font-family: Avenir;
+            margin:10px 0px 0px 0px;
+            padding:0px;
+		}
+	</style>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/circles.min.js"></script>
+
+</head>
+<body>
+
+<div id="canvas" >
+	<div class="circle" style="width:32%; text-align:center;" id="circles-1"></div>
+	<div class="circle" style="width:32%; text-align:center;" id="circles-2"></div>
+	<div class="circle" style="width:32%; text-align:center;" id="circles-3"></div>
+</div>
+<div id="canvas2" >
+	<div class="tit" style="width:32%; text-align:center;">CONSUMOS</div>
+	<div class="tit" style="width:32%; text-align:center;">DEP&Oacute;SITOS</div>
+	<div class="tit" style="width:32%; text-align:center;">SALDO ACTUAL</div>
+</div>
+
+<script>
+		var colors = [
+			 ['#FCE6A4', '#EFB917'], ['#BEE3F7', '#45AEEA'], ['#F4BCBF', '#D43A43']
+		], circles = [], percentage = 100;
+		
+		circles.push(Circles.create({
+				id:         "circles-1",
+				value:		percentage,
+				radius:     32,
+				width:      3,
+				colors:     colors[0],
+				text:       '$val_gastos'
+		}));
+		
+		circles.push(Circles.create({
+				id:         "circles-2",
+				value:		percentage,
+				radius:     32,
+				width:      3,
+				colors:     colors[1],
+				text:       '$val_depositos'
+		}));
+		
+		circles.push(Circles.create({
+				id:         "circles-3",
+				value:		percentage,
+				radius:     32,
+				width:      3,
+				colors:     colors[2], 
+				text:       '$val_saldoactual'
+		}));
+		
+		$( document ).ready(function() {
+			$(".circles-text").css('font-size', '70%');
+		});
+		
+	</script>
+</body>
+</html>
